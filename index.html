@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Простая проверка языка браузера
+        var userLang = navigator.language || navigator.userLanguage; 
+        if (userLang.includes('ru')) {
+            window.location.href = "./ru/privacy.html";
+        } else {
+            window.location.href = "./en/privacy.html";
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting to legal documents...</p>
+</body>
+</html>
