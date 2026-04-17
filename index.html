@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Documents - ChallengeTime</title>
-    <link rel="stylesheet" href="https://jsdelivr.net">
+    <title>ChallengeTime - Legal</title>
     <style>
-        body { text-align: center; padding-top: 50px; }
-        .container { max-width: 600px; margin: 0 auto; }
-        .links { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-        a.button { display: block; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        body { 
+            font-family: -apple-system, system-ui, sans-serif; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; margin: 0; background-color: #f4f4f9; color: #333;
+        }
+        .card { 
+            background: white; padding: 2rem; border-radius: 16px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 90%; max-width: 400px;
+        }
+        h1 { margin-bottom: 0.5rem; color: #000; }
+        .links { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        a { 
+            display: block; padding: 12px; background: #007AFF; color: white; 
+            text-decoration: none; border-radius: 10px; font-weight: 600; transition: opacity 0.2s;
+        }
+        a:hover { opacity: 0.8; }
+        .secondary { background: #8E8E93; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="card">
         <h1 id="title">ChallengeTime</h1>
-        <p id="subtitle">Legal Documents / Юридические документы</p>
-
+        <p id="sub">Legal Documents</p>
         <div class="links">
-            <a href="./en/privacy.html" id="privacyBtn" class="button">Privacy Policy</a>
-            <a href="./en/terms.html" id="termsBtn" class="button">Terms of Use</a>
+            <a href="./en/privacy.html" id="pBtn">Privacy Policy</a>
+            <a href="./en/terms.html" id="tBtn">Terms of Use</a>
         </div>
     </div>
 
     <script>
-        // Определяем язык пользователя
-        var userLang = navigator.language || navigator.userLanguage; 
-        if (userLang.includes('ru')) {
-            // Меняем текст и ссылки на русские, если язык RU
-            document.getElementById('title').innerText = "ChallengeTime";
-            document.getElementById('subtitle').innerText = "Юридические документы";
-            
-            var pBtn = document.getElementById('privacyBtn');
-            pBtn.innerText = "Политика конфиденциальности";
-            pBtn.href = "./ru/privacy.html";
-            
-            var tBtn = document.getElementById('termsBtn');
-            tBtn.innerText = "Условия использования";
-            tBtn.href = "./ru/terms.html";
-        }
+        try {
+            var isRu = (navigator.language || navigator.userLanguage).includes('ru');
+            if (isRu) {
+                document.getElementById('sub').innerText = "Юридические документы";
+                document.getElementById('pBtn').innerText = "Политика конфиденциальности";
+                document.getElementById('pBtn').href = "./ru/privacy.html";
+                document.getElementById('tBtn').innerText = "Условия использования";
+                document.getElementById('tBtn').href = "./ru/terms.html";
+            }
+        } catch (e) { console.error(e); }
     </script>
 </body>
 </html>
